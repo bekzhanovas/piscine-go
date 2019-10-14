@@ -1,2 +1,2 @@
 #! /bin/bash
-ls -t -m -p --ignore='.??*' --ignore='.[^.]' --ignore='#*'
+ls -t -m -p --ignore='.??*' --ignore='.[^.]' --ignore='#*' | tr -d
