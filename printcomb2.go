@@ -2,9 +2,9 @@ package piscine
 
 import "github.com/01-edu/z01"
 
-func get_l(i, j, k rune) (rune) {
+func get_l(i, j, k rune) rune {
 	if k == i {
-		return j+1
+		return j + 1
 	} else {
 		return '0'
 	}
@@ -12,12 +12,10 @@ func get_l(i, j, k rune) (rune) {
 
 
 func PrintComb2() {
-	
 	for i := '0'; i <= '9'; i++ {
-		
 		for j := '0'; j <= '9'; j++ {
 			for k := i; k <= '9'; k++ {
-				l := get_l (i, j, k)
+				l := get_l(i, j, k)
 				for ; l <= '9'; l++ {
 					z01.PrintRune(i)
 					z01.PrintRune(j)
@@ -30,7 +28,6 @@ func PrintComb2() {
 					} else {
 						z01.PrintRune(10)
 					}
-	
 				}
 			}
 		}
