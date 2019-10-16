@@ -1,7 +1,6 @@
 package main
 
 import "fmt"
-
  
 func main() {
 	final := ""
@@ -11,5 +10,3 @@ func main() {
 	}
 	fmt.Println(final)
 	}
-
-				
