@@ -6,5 +6,5 @@ func main() {
 	for a := '0'; a <= '9'; a++ {
 		z01.PrintRune(a)
 	}
-	z01.PrintRune('/n')
+	z01.PrintRune(10)
 }
