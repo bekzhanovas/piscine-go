@@ -12,6 +12,8 @@ func PrintComb() {
 				if i != '7' {
 					z01.PrintRune(44)
 					z01.PrintRune(32)
+				} else {
+					z01.PrintRune(10)
 				}
 			}
 		}
