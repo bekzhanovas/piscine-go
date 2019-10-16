@@ -1,6 +1,6 @@
 package main
 
-import "fmt"
+import "github.com/01-ude/z01"
 
 func main() {
 	final := ""
