@@ -10,11 +10,11 @@ func main() {
 
     final:=""
 
-    for i:=97; i<123; i++ {
+    for a:=97; a<123; a++ {
 
    
 
-                character := rune(i)
+                character := rune(a)
 
     final+=string(character)
 
