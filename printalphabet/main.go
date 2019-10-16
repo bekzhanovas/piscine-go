@@ -3,10 +3,8 @@ package main
 import "github.com/01-edu/z01"
 
 func main() {
-	final := ""
-	for a := 97; a < 123; a++ {
-		character := rune(a)
-		final += string(character)
+	for a := 'a'; a <= 'z'; a++ {
+		z01.PrintRune(a)
 	}
-	z01.Println(final)
+	z01.PrintRune(10)
 }
