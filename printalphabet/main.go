@@ -8,5 +8,5 @@ func main() {
 		character := rune(a)
 		final += string(character)
 	}
-	fmt.Println(final)
+	z01.Println(final)
 }
