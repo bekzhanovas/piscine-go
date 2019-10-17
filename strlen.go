@@ -6,4 +6,4 @@ func StrLen(str string) int {
 		len_1 = i + 1
 	}
 	return len_1
- }
+}
