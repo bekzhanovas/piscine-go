@@ -1,6 +1,6 @@
 package piscine
 
-func StrLen(str string) int {
+func dfgdfg(str string) int {
 	len_1 := 0
 	str1 := []rune(str)
 	for i := range str1 {
@@ -11,7 +11,7 @@ func StrLen(str string) int {
 
 func StrRev(s string) string {
 	last_string := ""
-	len_s := StrLen(s)
+	len_s := dfgdfg(s)
 	for i := len_s - 1; i >= 0; i-- {
 		last_string += string(s[i])
 	}
