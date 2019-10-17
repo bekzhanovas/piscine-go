@@ -11,7 +11,7 @@ func StrLen(str string) int {
 
 func StrRev(s string) string {
 	last_string := ""
-	len_s := StrLen (s)
+	len_s := StrLen(s)
 	for i := len_s - 1; i >= 0; i-- {
 		last_string += string(s[i])
 	}
