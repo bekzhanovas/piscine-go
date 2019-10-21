@@ -1,6 +1,5 @@
 package piscine
 
-
 func IterativeFactorial(nb int) int {
 	if nb > 0 {
 		Total := 1
@@ -11,9 +10,4 @@ func IterativeFactorial(nb int) int {
 	} else {
 		return 0
 	}
-}
-
-func main() {
-	arg := 4
-	fmt.Println(IterativeFactorial(arg))
 }
