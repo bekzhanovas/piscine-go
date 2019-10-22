@@ -1,6 +1,6 @@
 package piscine
 
-func TrimAtoi(s string) []int {
+func TrimAtoi(s string) int {
 	list := []rune(s)
 	var int_list []int
 	var int_list1 []int
@@ -32,7 +32,7 @@ func TrimAtoi(s string) []int {
 		}
 		final_int = int_list1[0]*RecursivePower1(10, StrLen1(int_list1)-1) - final_int
 	}
-	return int_list1
+	return final_int 
 }
 
 func RecursivePower1(nb int, power int) int {
