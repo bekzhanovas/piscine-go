@@ -12,7 +12,7 @@ func PrintNbrInOrder(n int) {
 		last := n % 10
 		n = n / 10
 		list = append(list, last)
-		length ++
+		length++
 	}
 	for {
 		counter := 0
