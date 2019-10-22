@@ -16,7 +16,6 @@ func Capitalize(s string) string {
 			Is_capital = 1
 		}
 	}
-	fmt.Println([]rune(s))
 	return string(s1)
 }
 
