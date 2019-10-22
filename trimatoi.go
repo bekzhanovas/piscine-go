@@ -21,7 +21,7 @@ func TrimAtoi(s string) int {
 			}
 		}
 	} else {
-	return 0
+		return 0
 	}
 	final_int := 0
 	if int_list1[0] > 0 {
