@@ -20,6 +20,8 @@ func TrimAtoi(s string) int {
 				int_list1 = append(int_list1, int_list[j])
 			}
 		}
+	} else {
+	return 0
 	}
 	final_int := 0
 	if int_list1[0] > 0 {
