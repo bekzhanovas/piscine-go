@@ -32,7 +32,7 @@ func TrimAtoi(s string) int {
 		}
 		final_int = int_list1[0]*RecursivePower1(10, StrLen1(int_list1)-1) - final_int
 	}
-	return final_int 
+	return final_int
 }
 
 func RecursivePower1(nb int, power int) int {
