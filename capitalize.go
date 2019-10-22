@@ -1,3 +1,5 @@
+package piscine
+
 func Capitalize(s string) string {
 	s1 := []rune(s)
 	Is_capital := 1
