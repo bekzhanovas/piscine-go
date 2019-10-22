@@ -3,7 +3,7 @@ package piscine
 func Capitalize(s string) string {
 	s1 := []rune(s)
 	Is_capital := 1
-	for i := 0; i < len(s1); i++ {
+	for i := 0; i < StrLen2(s1); i++ {
 		if is_capital(s1[i]) == 1 && Is_capital == 1 {
 			if s1[i] >= 'a' && s1[i] <= 'z' {
 				s1[i] = s1[i] - 32
