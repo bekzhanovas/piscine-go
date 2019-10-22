@@ -7,6 +7,7 @@ func PrintNbrInOrder(n int) {
 	length := 0
 	if n == 0 {
 		list = append(list, 0)
+		z01.PrintRune(rune(list[0]) + '0')
 	}
 	for n > 0 {
 		last := n % 10
