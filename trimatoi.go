@@ -24,7 +24,7 @@ func TrimAtoi(s string) int {
 		return 0
 	}
 	final_int := 0
-	if int_list1[0] > 0 {
+	if int_list1[0] >= 0 {
 		for k := StrLen1(int_list1) - 1; k >= 0; k-- {
 			final_int = final_int + int_list1[StrLen1(int_list1)-1-k]*RecursivePower1(10, k)
 		}
