@@ -1,7 +1,8 @@
 package piscine
 
 import "os"
+import "github.com/01-edu/z01"
 
 func main() {
-	Printrunes(os.Args[0], 0)
+	z01.PrintRune(os.Args[0], 0)
 }
