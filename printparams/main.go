@@ -4,7 +4,7 @@ import "os"
 import "github.com/01-edu/z01"
 
 func main() {
-	argument := []string{"askar", "bar", "dat"}
+	argument := os.Args
 	len_arg := 0
 	for k := range argument {
 		len_arg = k + 1
