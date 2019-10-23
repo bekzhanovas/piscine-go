@@ -8,6 +8,6 @@ func main() {
 	p := []rune(a)
 	for _, l := range p {
 		z01.PrintRune(l)
-	} 
+	}
 	z01.PrintRune('\n')
 }
