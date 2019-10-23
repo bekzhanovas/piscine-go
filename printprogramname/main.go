@@ -1,13 +1,13 @@
-package piscine
+package main
 
 import "os"
 import "github.com/01-edu/z01"
 
 func main() {
-	a := os.Args[0]
-	p := []rune(a)
-	for _, l := range p {
-		z01.PrintRune(l)
+	argument := os.Args[0]
+	a := []rune(argument)
+	for _, i := range a {
+		z01.PrintRune(i)
 	}
 	z01.PrintRune('\n')
 }
