@@ -1,8 +1,11 @@
 package main
 
-import "fmt"
-import "os"
+import "github.com/01-edu/z01"
 
 func main() {
-	fmt.Println(os.args[:1])
+	data := "./main"
+	data1 := []rune(data)
+	for i := 0; i < len(data1); i++ {
+		z01.PrintRune(data1 [i])
+	}
 }
