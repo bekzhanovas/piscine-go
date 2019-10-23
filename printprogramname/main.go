@@ -1,11 +1,7 @@
-package main
+package piscine
 
-import "github.com/01-edu/z01"
+import "os"
 
-func main() {
-	data := "./main"
-	data1 := []rune(data)
-	for i := 0; i < StrLen2(data1); i++ {
-		z01.PrintRune(data1[i])
-	}
+func main(){
+	Printrunes(os.Args[0], 0)
 }
