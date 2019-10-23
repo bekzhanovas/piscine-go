@@ -11,9 +11,9 @@ func main() {
 	}
 	for {
 		counter := 0
-		for i := 0; i < len_arg; i++ {
-			if argument[i] > argument[i+1] {
-				argument[i], argument[i+1] = argument[i+1], argument[i]
+		for i := 1; i < len_arg; i++ {
+			if argument[i] < argument[i-1] {
+				argument[i], argument[i-1] = argument[i-1], argument[i]
 				counter++
 			}
 		}
@@ -21,6 +21,7 @@ func main() {
 			break
 		}
 	}
+
 	for i := 0; i < len_arg; i++ {
 		a := []rune(argument[i])
 		for _, j := range a {
