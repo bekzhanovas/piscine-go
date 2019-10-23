@@ -4,8 +4,10 @@ import "os"
 import "github.com/01-edu/z01"
 
 func main() {
-	data := os.Args[0]
-	for i := range data {
-		z01.PrintRune(i)
-	}
+	a := os.Args[0]
+	p := []rune(a)
+	for _, l := range p {
+		z01.PrintRune(l)
+	} 
+	z01.PrintRune('\n')
 }
