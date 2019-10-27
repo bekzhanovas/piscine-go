@@ -30,20 +30,24 @@ func main() {
 	for row := range int_data {
 		fmt.Println(int_data[row])
 	}
-	
-	
-	check_square (int_data, 0, 3)
+
+	a3 := check_square(int_data, 0, 3)
 	a1 := check_row(int_data, 0)
 	a2 := check_column(int_data, 3)
-	//a1:= drop_repeated_values(check_row(int_data, 0), check_column(int_data, 3))
 	fmt.Println(a1)
 	fmt.Println(a2)
+	fmt.Println(a3)
+	d1 := drop_repeated_values(a1, a2)
+	fmt.Println(d1)
+	d2 := drop_repeated_values(d1, a3)
+	fmt.Println(d2)
 }
 
 func drop_repeated_values(slice1 []int, slice2 []int) []int {
 	//slice1 := []int{8, 2, 3, 7, 5}
 	//slice2 := []int{9, 2, 3, 7, 8, 6}
-	fmt.Println(slice1, slice2)
+	//fmt.Println(slice1, slice2)
+	slice := make([]int, 9)
 	for i, number1 := range slice1 {
 		counter := 0
 		for _, number2 := range slice2 {
@@ -51,15 +55,36 @@ func drop_repeated_values(slice1 []int, slice2 []int) []int {
 				counter++
 			}
 		}
-		if counter == 0 {
-			slice1[i] = slice1[len(slice1)-1] // Copy last element to index i.
+		//fmt.Println(counter, slice1)
+		if counter > 0 {
+
+			slice[i] = slice1[i]
+			/*slice1[i] = slice1[len(slice1)-1] // Copy last element to index i.
 			slice1[len(slice1)-1] = 0         // Erase last element (write zero value).
 			slice1 = slice1[:len(slice1)-1]   // Truncate slice.
+			*/
 		}
 
 	}
-	fmt.Println(slice1)
-	return slice1
+	counter := 0
+	for i := 0; i < 9; i++ {
+		if slice[i] != 0 {
+			counter++
+		}
+	}
+	slice_fin := make([]int, counter)
+	//fmt.Println(slice)
+	i := 0
+	for j := 0; j < 9; j++ {
+
+		if slice[j] != 0 {
+			slice_fin[i] = slice[j]
+			i++
+		}
+	}
+
+	//fmt.Println(slice_fin )
+	return slice_fin
 }
 
 func check_square(int_data [][]int, row int, column int) []int {
@@ -67,8 +92,8 @@ func check_square(int_data [][]int, row int, column int) []int {
 	//fmt.Println(all_variables)
 	//int_data
 	//i
-	for i := row / 3; i < (row/3)+3; i++ {
-		for k := column / 3; k < (column/3)+3; k++ {
+	for i := (row / 3) * 3; i < (row/3)*3+3; i++ {
+		for k := (column / 3) * 3; k < (column/3)*3+3; k++ {
 			data := int_data[i][k]
 			for j := 0; j < len(all_variables); j++ {
 				if data == all_variables[j] {
@@ -79,7 +104,7 @@ func check_square(int_data [][]int, row int, column int) []int {
 			}
 		}
 	}
-	fmt.Println(all_variables)
+	//fmt.Println(all_variables)
 	return all_variables
 }
 
