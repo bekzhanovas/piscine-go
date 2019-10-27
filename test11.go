@@ -26,18 +26,65 @@ func main() {
 
 	//fmt.Println(int_data)
 	//fmt.Println(int_data[1][0])
-	
-	for row :=range int_data {
-		fmt.Println(int_data [row])
+
+	for row := range int_data {
+		fmt.Println(int_data[row])
 	}
-	chech_row (int_data , 0)
 	
 	
+	check_square (int_data, 0, 3)
+	a1 := check_row(int_data, 0)
+	a2 := check_column(int_data, 3)
+	//a1:= drop_repeated_values(check_row(int_data, 0), check_column(int_data, 3))
+	fmt.Println(a1)
+	fmt.Println(a2)
 }
 
+func drop_repeated_values(slice1 []int, slice2 []int) []int {
+	//slice1 := []int{8, 2, 3, 7, 5}
+	//slice2 := []int{9, 2, 3, 7, 8, 6}
+	fmt.Println(slice1, slice2)
+	for i, number1 := range slice1 {
+		counter := 0
+		for _, number2 := range slice2 {
+			if number1 == number2 {
+				counter++
+			}
+		}
+		if counter == 0 {
+			slice1[i] = slice1[len(slice1)-1] // Copy last element to index i.
+			slice1[len(slice1)-1] = 0         // Erase last element (write zero value).
+			slice1 = slice1[:len(slice1)-1]   // Truncate slice.
+		}
 
-func chech_row(int_data [][]int, row int)  {
-		all_variables := []int{1, 2, 3, 4, 5, 6, 7, 8, 9}
+	}
+	fmt.Println(slice1)
+	return slice1
+}
+
+func check_square(int_data [][]int, row int, column int) []int {
+	all_variables := []int{1, 2, 3, 4, 5, 6, 7, 8, 9}
+	//fmt.Println(all_variables)
+	//int_data
+	//i
+	for i := row / 3; i < (row/3)+3; i++ {
+		for k := column / 3; k < (column/3)+3; k++ {
+			data := int_data[i][k]
+			for j := 0; j < len(all_variables); j++ {
+				if data == all_variables[j] {
+					all_variables[j] = all_variables[len(all_variables)-1] // Copy last element to index i.
+					all_variables[len(all_variables)-1] = 0                // Erase last element (write zero value).
+					all_variables = all_variables[:len(all_variables)-1]   // Truncate slice.
+				}
+			}
+		}
+	}
+	fmt.Println(all_variables)
+	return all_variables
+}
+
+func check_row(int_data [][]int, row int) []int {
+	all_variables := []int{1, 2, 3, 4, 5, 6, 7, 8, 9}
 	//fmt.Println(all_variables)
 	//int_data
 	//i
@@ -45,19 +92,34 @@ func chech_row(int_data [][]int, row int)  {
 		data := int_data[row][i]
 		for j := 0; j < len(all_variables); j++ {
 			if data == all_variables[j] {
-				all_variables[j]= all_variables[len(all_variables)-1] // Copy last element to index i.
-				all_variables[len(all_variables)-1] = 0 // Erase last element (write zero value).
-				all_variables= all_variables[:len(all_variables)-1] // Truncate slice.
+				all_variables[j] = all_variables[len(all_variables)-1] // Copy last element to index i.
+				all_variables[len(all_variables)-1] = 0                // Erase last element (write zero value).
+				all_variables = all_variables[:len(all_variables)-1]   // Truncate slice.
 			}
 		}
 	}
-	fmt.Println(all_variables)
-
+	//fmt.Println(all_variables)
+	return all_variables
 }
 
-
-
-
+func check_column(int_data [][]int, column int) []int {
+	all_variables := []int{1, 2, 3, 4, 5, 6, 7, 8, 9}
+	//fmt.Println(all_variables)
+	//int_data
+	//i
+	for i := 0; i < 9; i++ {
+		data := int_data[i][column]
+		for j := 0; j < len(all_variables); j++ {
+			if data == all_variables[j] {
+				all_variables[j] = all_variables[len(all_variables)-1] // Copy last element to index i.
+				all_variables[len(all_variables)-1] = 0                // Erase last element (write zero value).
+				all_variables = all_variables[:len(all_variables)-1]   // Truncate slice.
+			}
+		}
+	}
+	//fmt.Println(all_variables)
+	return all_variables
+}
 
 func dots_to_zero(str string) string {
 	str1 := []rune(str)
@@ -81,9 +143,5 @@ func str_to_int(s [9]string) [][]int {
 		}
 		int_list_all[number] = int_list
 	}
-
 	return int_list_all
 }
-
-
-
