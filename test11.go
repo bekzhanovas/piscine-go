@@ -30,7 +30,34 @@ func main() {
 	for row :=range int_data {
 		fmt.Println(int_data [row])
 	}
+	chech_row (int_data , 0)
+	
+	
 }
+
+
+func chech_row(int_data [][]int, row int)  {
+		all_variables := []int{1, 2, 3, 4, 5, 6, 7, 8, 9}
+	//fmt.Println(all_variables)
+	//int_data
+	//i
+	for i := 0; i < 9; i++ {
+		data := int_data[row][i]
+		for j := 0; j < len(all_variables); j++ {
+			if data == all_variables[j] {
+				all_variables[j]= all_variables[len(all_variables)-1] // Copy last element to index i.
+				all_variables[len(all_variables)-1] = 0 // Erase last element (write zero value).
+				all_variables= all_variables[:len(all_variables)-1] // Truncate slice.
+			}
+		}
+	}
+	fmt.Println(all_variables)
+
+}
+
+
+
+
 
 func dots_to_zero(str string) string {
 	str1 := []rune(str)
@@ -57,7 +84,6 @@ func str_to_int(s [9]string) [][]int {
 
 	return int_list_all
 }
-
 
 
 
