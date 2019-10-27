@@ -31,7 +31,7 @@ func main() {
 		fmt.Println(int_data[row])
 	}
 
-	a3 := check_square(int_data, 0, 3)
+	/*a3 := check_square(int_data, 0, 3)
 	a1 := check_row(int_data, 0)
 	a2 := check_column(int_data, 3)
 	fmt.Println(a1)
@@ -40,7 +40,46 @@ func main() {
 	d1 := drop_repeated_values(a1, a2)
 	fmt.Println(d1)
 	d2 := drop_repeated_values(d1, a3)
-	fmt.Println(d2)
+	fmt.Println(d2)*/
+
+	for {
+		counter := 0
+		for row := 0; row < 9; row++ {
+			for column := 0; column < 9; column++ {
+				if int_data[row][column] == 0 {
+					d1 := drop_repeated_values(drop_repeated_values(check_row(int_data, row), check_column(int_data, column)), check_square(int_data, row, column))
+					//fmt.Println(d1)
+					if len(d1) == 1 {
+						int_data[row][column] = d1[0]
+						counter++
+					}
+				}
+			}
+		}
+		if counter == 0 {
+			break
+		}
+	}
+
+	fmt.Println()
+	for row := range int_data {
+		fmt.Println(int_data[row])
+	}
+	fmt.Println()
+	
+	for row := 0; row < 9; row++ {
+		for column := 0; column < 9; column++ {
+			if int_data[row][column] == 0 {
+				d1 := drop_repeated_values(drop_repeated_values(check_row(int_data, row), check_column(int_data, column)), check_square(int_data, row, column))
+				fmt.Println(d1)
+				if len(d1) == 1 {
+					int_data[row][column] = d1[0]
+
+				}
+			}
+		}
+	}
+
 }
 
 func drop_repeated_values(slice1 []int, slice2 []int) []int {
