@@ -44,30 +44,54 @@ func main() {
 
 	for {
 		counter := 0
+		all_rows := make([][]int, 9)
 		for row := 0; row < 9; row++ {
 			for column := 0; column < 9; column++ {
+
 				if int_data[row][column] == 0 {
 					d1 := drop_repeated_values(drop_repeated_values(check_row(int_data, row), check_column(int_data, column)), check_square(int_data, row, column))
 					//fmt.Println(d1)
+					all_rows[column] = d1
+
 					if len(d1) == 1 {
 						int_data[row][column] = d1[0]
 						counter++
 					}
+				} else {
+					dd := []int{0}
+					all_rows[column] = dd
 				}
+
 			}
+			if check_all_rows(all_rows)[0] > -1 {
+				int_data[row][check_all_rows(all_rows)[1]] = check_all_rows(all_rows)[0]
+				counter++
+			}
+			fmt.Println(check_all_rows(all_rows))
+
 		}
+		//fmt.Println(all_rows)
+		/*for row := 0; row < 9; row++ {
+			all_rows := make([][]int, 9)
+
+		}*/
 		if counter == 0 {
 			break
 		}
+		fmt.Println()
+		for row := range int_data {
+			fmt.Println(int_data[row])
+		}
+		fmt.Println()
 	}
 
-	fmt.Println()
+	/*fmt.Println()
 	for row := range int_data {
 		fmt.Println(int_data[row])
 	}
-	fmt.Println()
-	
-	for row := 0; row < 9; row++ {
+	fmt.Println()*/
+
+	/*for row := 0; row < 9; row++ {
 		for column := 0; column < 9; column++ {
 			if int_data[row][column] == 0 {
 				d1 := drop_repeated_values(drop_repeated_values(check_row(int_data, row), check_column(int_data, column)), check_square(int_data, row, column))
@@ -78,7 +102,47 @@ func main() {
 				}
 			}
 		}
+	}*/
+
+}
+
+func check_all_rows(a1 [][]int) []int {
+	result := make([]int, 2)
+	fmt.Println(a1)
+	//a1 := [][]int{{2, 8}, {1, 2, 3}, {8, 2}}
+	int_freq := make(map[int]int)
+	for i := 0; i < 9; i++ {
+		for j := 0; j < len(a1[i]); j++ {
+			_, ok := int_freq[a1[i][j]]
+			if ok == true {
+				int_freq[a1[i][j]] += 1
+			} else {
+				int_freq[a1[i][j]] = 1
+			}
+		}
 	}
+	fmt.Println(int_freq)
+	//k := 0
+	//res := make([]int, 2)
+	for name, count := range int_freq {
+		if count == 1 {
+			for i := 0; i < 9; i++ {
+				for j := 0; j < len(a1[i]); j++ {
+					if a1[i][j] == name {
+						result[0] = name
+						result[1] = i
+						//result[k] = res
+						//k++
+						//fmt.Println(result)
+						return result
+					}
+
+				}
+			}
+		}
+	}
+
+	return []int{-1, -1}
 
 }
 
